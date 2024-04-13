@@ -6,6 +6,7 @@ import 'package:my_app/screens/page/SecondScreen/detail_padi.dart';
 import 'package:my_app/screens/page/SecondScreen/detail_cabai.dart';
 import 'package:my_app/screens/page/SecondScreen/detail_bunga.dart';
 import 'package:my_app/screens/page/SecondScreen/detail_hama.dart';
+import 'package:my_app/screens/page/SecondScreen/detail_hama_tikus.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -194,14 +195,14 @@ class HomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   GestureDetector(
-                    // onTap: () {
-                    //   Navigator.push(
-                    //     context,
-                    //     MaterialPageRoute(
-                    //       builder: (context) => ContentScreen(contentId: 4),
-                    //     ),
-                    //   );
-                    // },
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailHamaTikusScreen(),
+                        ),
+                      );
+                    },
                     child: Container(
                       margin: EdgeInsets.only(bottom: 16),
                       decoration: BoxDecoration(
@@ -211,14 +212,14 @@ class HomeScreen extends StatelessWidget {
                       child: ListTile(
                         leading: Icon(Icons.article, color: Colors.green),
                         title: Text(
-                          'Konten 1',
+                          'Menanggulangi Hama Tikus',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         subtitle: Text(
-                          'Deskripsi konten 1',
+                          'tips untuk menghilangkan hama tikus pada tanaman padi',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -242,14 +243,14 @@ class HomeScreen extends StatelessWidget {
                       child: ListTile(
                         leading: Icon(Icons.article, color: Colors.green),
                         title: Text(
-                          'Konten 2',
+                          'Membuat Tanah Menjadi Subur',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         subtitle: Text(
-                          'Deskripsi konten 2',
+                          'Membuat tanah menjadi subur adalah langkah penting dalam pertanian dan kebun yang berhasil.',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -273,14 +274,14 @@ class HomeScreen extends StatelessWidget {
                       child: ListTile(
                         leading: Icon(Icons.article, color: Colors.green),
                         title: Text(
-                          'Konten 3',
+                          'Menghindari Cacar Pada Cabai',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         subtitle: Text(
-                          'Deskripsi konten 3',
+                          'Menghindari penyakit cacar pada tanaman cabai sangat penting dalam menjaga kesehatan dan produktivitas tanaman.',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),
@@ -304,14 +305,14 @@ class HomeScreen extends StatelessWidget {
                       child: ListTile(
                         leading: Icon(Icons.article, color: Colors.green),
                         title: Text(
-                          'Konten 4',
+                          'Membuat Pupuk yang Bagus',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
                           ),
                         ),
                         subtitle: Text(
-                          'Deskripsi konten 4',
+                          'Membuat pupuk yang bagus adalah salah satu keterampilan penting bagi petani dan tukang kebun untuk meningkatkan kualitas tanaman.',
                           style: TextStyle(fontSize: 16),
                         ),
                       ),

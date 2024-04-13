@@ -31,7 +31,7 @@ class _InputTanamanState extends State<InputTanaman> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Update Resep"),
+        title: Text("TambahkanTanaman"),
         leading: Icon(Icons.keyboard_arrow_left),
       ),
       body: Padding(

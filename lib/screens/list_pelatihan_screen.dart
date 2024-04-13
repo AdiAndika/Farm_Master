@@ -11,7 +11,7 @@ class PelatihanScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: GridView.count(
-        crossAxisCount: 2,
+        crossAxisCount: 1,
         children: [
           CategoryItem(
             image: AssetImage('assets/images/padi.png'),
