@@ -56,7 +56,13 @@ class AboutScreen extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 16),
-              
+              Text(
+                'Email: adi.andika@student.undiksha.ac.id',
+                style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
         ),
