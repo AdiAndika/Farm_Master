@@ -2,7 +2,7 @@ import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
-import 'package:my_app/tanaman/presenter_data.dart';
+import 'package:my_app/screens/routes/TanamanScreen/presenter_data.dart';
 
 class DbHelper {
   static late DbHelper _dbHelper;

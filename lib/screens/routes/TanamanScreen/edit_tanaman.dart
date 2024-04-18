@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:datetime_picker_formfield/datetime_picker_formfield.dart';
 import 'package:intl/intl.dart';
-import 'package:my_app/tanaman/presenter_data.dart';
+import 'package:my_app/screens/routes/TanamanScreen/presenter_data.dart';
 
 class EditTanaman extends StatefulWidget {
   final nanam tanaman;

@@ -1,86 +1,58 @@
+// ignore_for_file: duplicate_import
+
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-import 'package:my_app/news_mahasiswa/news_mahasiswa_screen.dart';
+import 'package:my_app/screens/routes/MahasiswaScreen/news_mahasiswa_screen.dart';
 
-class NewsDetailMahasiswa extends StatefulWidget {
-  const NewsDetailMahasiswa({
-    Key? key,
-    required this.id,
-  }) : super(key: key);
-  final String id;
+class NewsMahasiswaBaru extends StatefulWidget {
+  const NewsMahasiswaBaru({Key? key}) : super(key: key);
 
   @override
-  _NewsDetailMahasiswaState createState() => _NewsDetailMahasiswaState();
+  _NewsMahasiswaBaruState createState() => _NewsMahasiswaBaruState();
 }
 
-class _NewsDetailMahasiswaState extends State<NewsDetailMahasiswa> {
+class _NewsMahasiswaBaruState extends State<NewsMahasiswaBaru> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final TextEditingController _title = TextEditingController();
   final TextEditingController _body = TextEditingController();
   final TextEditingController _kelasmahasiswa = TextEditingController();
-
-  bool _isFormIncomplete = false;
-
-  @override
-  void initState() {
-    super.initState();
-    fetchData();
-  }
-
-  Future<void> fetchData() async {
-    try {
-      final String id = widget.id; // Get the ID passed to the widget
-      final response = await http.get(
-        Uri.parse(
-            'https://66038e2c2393662c31cf2e7d.mockapi.io/api/v1/news/$id'),
-      );
-
-      if (response.statusCode == 200) {
-        final jsonData = jsonDecode(response.body);
-        _title.text = jsonData['title'];
-        _body.text = jsonData['body'];
-        _kelasmahasiswa.text = jsonData['Kelas'];
-      } else {
-        print('Gagal mendapatkan data: ${response.statusCode}');
-      }
-    } catch (e) {
-      print('Error: $e');
-    }
-  }
 
   void _showSnackBar(String message) {
     final snackBar = SnackBar(content: Text(message));
     ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
-  Future<void> _updateData() async {
+  bool _isFormIncomplete = false;
+
+  Future<void> _tambahData() async {
     try {
-      final Map<String, dynamic> updatedData = {
+      final Map<String, dynamic> newData = {
         'title': _title.text,
         'body': _body.text,
         'Kelas': _kelasmahasiswa.text,
       };
 
-      final response = await http.put(
-        Uri.parse(
-            'https://66038e2c2393662c31cf2e7d.mockapi.io/api/v1/news/${widget.id}'),
-        body: jsonEncode(updatedData),
+      final response = await http.post(
+        Uri.parse('https://66038e2c2393662c31cf2e7d.mockapi.io/api/v1/news'),
+        body: jsonEncode(newData),
         headers: {'Content-Type': 'application/json'},
       );
 
-      if (response.statusCode == 200) {
-        // Data berhasil diperbarui
-        _showSnackBar('Data berhasil diperbarui'); // Tampilkan SnackBar
+      if (response.statusCode == 201) {
+        // Data berhasil ditambahkan
+        print('Data berhasil ditambahkan');
+        _showSnackBar('Data berhasil disimpan'); // Tampilkan SnackBar
+        setState(() {});
         Navigator.pop(
             context,
             MaterialPageRoute(
                 builder: (context) =>
-                    NewsMahasiswaScreen())); // Kembali ke halaman sebelumnya setelah berhasil memperbarui data
+                    NewsMahasiswaScreen())); // Kembali ke halaman sebelumnya setelah berhasil menambahkan data
       } else {
-        // Gagal memperbarui data
-        print('Gagal memperbarui data: ${response.statusCode}');
+        // Gagal menambahkan data
+        print('Gagal menambahkan data: ${response.statusCode}');
       }
     } catch (e) {
       print('Error: $e');
@@ -90,7 +62,9 @@ class _NewsDetailMahasiswaState extends State<NewsDetailMahasiswa> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Detail Mahasiswa')),
+      appBar: AppBar(
+        title: Text('Pendaftaran Mahasiswa'),
+      ),
       body: SingleChildScrollView(
         child: Padding(
             padding: EdgeInsets.all(16.0),
@@ -101,7 +75,7 @@ class _NewsDetailMahasiswaState extends State<NewsDetailMahasiswa> {
                 children: [
                   TextFormField(
                     controller: _title,
-                    decoration: InputDecoration(labelText: 'Nama Mahasiswa :'),
+                    decoration: InputDecoration(labelText: 'Nama Mahasiswa:'),
                     validator: (value) {
                       if (value!.isEmpty) {
                         return 'Harap isi Identitas Nama';
@@ -132,14 +106,14 @@ class _NewsDetailMahasiswaState extends State<NewsDetailMahasiswa> {
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        _updateData();
+                        _tambahData();
                       } else {
                         setState(() {
-                          _isFormIncomplete = true;
+                          _isFormIncomplete =
+                              true; // Setel _isFormIncomplete menjadi true saat validasi gagal
                         });
                       }
-                    },
-                    style: ElevatedButton.styleFrom(
+                    }, style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green, // Mengatur warna latar belakang tombol menjadi hijau
                     ),
                     child: Text(
@@ -153,11 +127,11 @@ class _NewsDetailMahasiswaState extends State<NewsDetailMahasiswa> {
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => NewsMahasiswaScreen()),
-                      );
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => NewsMahasiswaScreen()));
                     },
-                    style: ElevatedButton.styleFrom(
+                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green, // Mengatur warna latar belakang tombol menjadi hijau
                     ),
                     child: Text(

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_app/screens/page/SecondScreen/detail_padi.dart';
-import 'package:my_app/screens/page/SecondScreen/detail_cabai.dart';
-import 'package:my_app/screens/page/SecondScreen/detail_bunga.dart';
-import 'package:my_app/screens/page/SecondScreen/detail_hama.dart';
+import 'package:my_app/screens/routes/DetailScreen/detail_padi.dart';
+import 'package:my_app/screens/routes/DetailScreen/detail_cabai.dart';
+import 'package:my_app/screens/routes/DetailScreen/detail_bunga.dart';
+import 'package:my_app/screens/routes/DetailScreen/detail_hama.dart';
 
 class PelatihanScreen extends StatelessWidget {
   const PelatihanScreen({Key? key}) : super(key: key);

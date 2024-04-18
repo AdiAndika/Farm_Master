@@ -1,10 +1,10 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:my_app/tanaman/edit_tanaman.dart';
-import 'package:my_app/tanaman/new_tanaman.dart';
+import 'package:my_app/screens/routes/TanamanScreen/edit_tanaman.dart';
+import 'package:my_app/screens/routes/TanamanScreen/new_tanaman.dart';
 import 'package:my_app/helper/dbhelper.dart';
-import 'package:my_app/tanaman/presenter_data.dart';
+import 'package:my_app/screens/routes/TanamanScreen/presenter_data.dart';
 import 'package:my_app/utils/constants.dart';
 import 'package:sqflite/sqflite.dart';
 import 'dart:async';

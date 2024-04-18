@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:my_app/dto/news.dart';
 import 'package:my_app/utils/constants.dart';
-import 'package:my_app/news_mahasiswa/news_mahasiswa_baru.dart';
-import 'package:my_app/news_mahasiswa/news_detail_mahasiswa.dart';
+import 'package:my_app/screens/routes/MahasiswaScreen/news_mahasiswa_baru.dart';
+import 'package:my_app/screens/routes/MahasiswaScreen/news_detail_mahasiswa.dart';
 
 class NewsMahasiswaScreen extends StatefulWidget {
   const NewsMahasiswaScreen({Key? key}) : super(key: key);

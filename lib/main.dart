@@ -1,7 +1,7 @@
 // ignore_for_file: unused_import
 
 import 'package:flutter/material.dart';
-import 'package:my_app/screens/page/SecondScreen/detail_padi.dart';
+import 'package:my_app/screens/routes/DetailScreen/detail_padi.dart';
 import 'package:my_app/screens/home_screen.dart';
 import 'package:my_app/screens/login_next_screen.dart';
 import 'package:my_app/screens/login_screen.dart';
@@ -10,12 +10,12 @@ import 'package:my_app/screens/list_pelatihan_screen.dart';
 import 'package:my_app/screens/about_screen.dart';
 import 'package:my_app/screens/setting_screen.dart';
 import 'package:my_app/screens/profile_screen.dart';
-import 'package:my_app/screens/page/SecondScreen/second_screen.dart';
+import 'package:my_app/screens/routes/DetailScreen/second_screen.dart';
 import 'package:my_app/screens/splash_screen.dart';
-import 'package:my_app/tanaman/data_tanaman_screen.dart';
+import 'package:my_app/screens/routes/TanamanScreen/data_tanaman_screen.dart';
 import 'package:my_app/utils/constants.dart'; //baru
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:my_app/news_mahasiswa/news_mahasiswa_screen.dart';
+import 'package:my_app/screens/routes/MahasiswaScreen/news_mahasiswa_screen.dart';
 
 void main() {
   runApp(const MyApp());
